@@ -1,0 +1,39 @@
+import React, { useState } from 'react'
+
+export default function Table() {
+  const [a_time,seta_time] = useState([]);
+  const [b_time,setb_time] = useState([]);
+
+  function handlechange_at(event) {
+    seta_time({ inputa : event.target.value });
+  }
+  function handlechange_bt(event) {
+    setb_time({ inputb : event.target.value });
+  }
+
+  const handleClick = () => {
+    seta_time(prevState => ({
+      a_time: [...prevState.a_time , prevState.inputa],
+    }));
+  }
+  function renderRows(){
+    
+  }
+return (
+    <>
+    <p>Enter the arival time burst time respectively</p>
+    <input
+    type="number"
+    value={a_time}
+    onChange={handlechange_at}
+    />
+    <input
+    type="number"
+    value={b_time}
+    onChange={handlechange_bt}
+    />
+    <button onClick={handleClick}>
+      Add
+    </button>
+    </>
+  )
